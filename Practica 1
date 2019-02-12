@@ -1,0 +1,30 @@
+
+//Librerias.
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+//Prototipos en caso de que sean usados.
+
+//Se anota using namespace std;
+using namespace std;
+
+//Programa principal
+void main()
+{
+	float precio, preciof, iva;
+
+	do{
+		cout<<"Ingrese el precio del producto."<<endl;
+		cin>>precio;
+	}while(precio<0);
+
+	iva = precio*0.13;
+	preciof = precio + iva;
+
+	cout<<"El iva es: "<<iva<<endl;
+	cout<<"El precio total es :"<<preciof<<endl;
+	
+	getch();
+}
+
