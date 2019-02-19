@@ -1,0 +1,56 @@
+
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+void ecuacioncuadratica(float a, float b, float c, float &x1, float &x2);
+float discriminante(float a, float b, float c);
+
+void main()
+{
+	float q, w, e, dis, X1, X2, n;
+
+
+		do{
+		cout<<"Ingrese el valor de A."<<endl;
+		cin>>q;
+		}while(q==0);
+
+		cout<<"Ingrese el valor de B."<<endl;
+		cin>>w;
+			
+		cout<<"Ingrese el valor de C."<<endl;
+		cin>>e;
+
+		dis = discriminante(q,w,e);
+
+		if(dis<0)
+			cout<<"No existen soluciones reales."<<endl;
+			cout<<
+
+		if(dis>=0)
+			ecuacioncuadratica(q,w,e,X1,X2);
+
+		cout<<"Solucion real 1= "<<X1<<endl;
+		cout<<"Solucion real 2= "<<X2<<endl;
+	
+	getch();
+}
+
+float discriminante(float a, float b, float c)
+{
+	float d=0;
+	d = b*b - 4*a*c;
+	return d;
+}
+
+void ecuacioncuadratica(float a, float b, float c, float &x1, float &x2)
+{
+	x1 = (-b + sqrt(b*b-4*a*c))/(2*a);
+
+	x2 = (-b - sqrt(b*b-4*a*c))/(2*a);
+}
