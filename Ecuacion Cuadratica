@@ -1,5 +1,6 @@
 
 
+
 #include "stdafx.h"
 #include <iostream>
 #include "conio.h"
@@ -13,32 +14,43 @@ float discriminante(float a, float b, float c);
 void main()
 {
 	float q, w, e, dis, X1, X2, n;
+	char r;
+do{
 
-
-		do{
+	do{
 		cout<<"Ingrese el valor de A."<<endl;
 		cin>>q;
 		}while(q==0);
 
-		cout<<"Ingrese el valor de B."<<endl;
-		cin>>w;
+	cout<<"Ingrese el valor de B."<<endl;
+	cin>>w;
 			
-		cout<<"Ingrese el valor de C."<<endl;
-		cin>>e;
+	cout<<"Ingrese el valor de C."<<endl;
+	cin>>e;
 
-		dis = discriminante(q,w,e);
+	dis = discriminante(q,w,e);
 
-		if(dis<0)
-			cout<<"No existen soluciones reales."<<endl;
-			cout<<
+	if(dis<0)
+	{
+		ecuacioncuadratica(q,w,e,X1,X2);
+		cout<<"No existen soluciones reales."<<endl;
+		cout<<X1<<endl;
+		cout<<X2<<endl;
+	}
+		
+	if(dis>=0)
+		ecuacioncuadratica(q,w,e,X1,X2);
 
-		if(dis>=0)
-			ecuacioncuadratica(q,w,e,X1,X2);
+	cout<<"Solucion real 1= "<<X1<<endl;
+	cout<<"Solucion real 2= "<<X2<<endl;
 
-		cout<<"Solucion real 1= "<<X1<<endl;
-		cout<<"Solucion real 2= "<<X2<<endl;
-	
-	getch();
+cout<<"Desea hacer otra OPERACION?"<<endl;
+cin>>r;
+}while(r=='s');
+
+
+
+getch();
 }
 
 float discriminante(float a, float b, float c)
