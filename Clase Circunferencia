@@ -1,0 +1,63 @@
+
+//Circunferencia.h
+
+#pragma once
+class Circunferencia
+{
+private:
+	float radio;
+
+public:
+	Circunferencia(float _radio);
+	~Circunferencia(void);
+
+	float perimetro(float radio);
+	float area(float radio);
+};
+
+
+//Circunferencia.cpp
+
+#include "StdAfx.h"
+#include <iostream>
+#include "Circunferencia.h"
+
+
+Circunferencia::Circunferencia(float _radio)
+{
+	radio = _radio;
+}
+
+
+Circunferencia::~Circunferencia(void)
+{
+}
+
+float Circunferencia::area(float radio)
+{
+	float pi=3.14159268 , aux=0;
+	aux = pi * radio * 2;
+	return aux;
+}
+
+float Circunferencia::perimetro(float radio)
+{
+	float pi=3.14159268 , aux=0;
+	aux = pi * radio * radio;
+	return aux;
+}
+
+//Circunferencia.cpp Main
+
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "Circunferencia.h"
+
+using namespace std;
+
+void main()
+{
+
+}
