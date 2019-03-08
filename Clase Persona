@@ -1,0 +1,71 @@
+
+// Persona.h
+
+#pragma once
+class Persona
+{
+
+private:
+	int edad;
+	int cedula;
+
+public:
+	Persona(int _edad, int _cedula);
+	~Persona(void);
+	
+	void leer();
+	void correr();
+};
+
+
+
+
+//Persona.cpp
+
+#include "StdAfx.h"
+#include "Persona.h"
+#include <iostream>
+
+using namespace std;
+
+
+Persona::Persona(int _edad, int _cedula)
+{  //Se inicilizan los atributos.
+	edad = _edad;
+	cedula = _cedula;
+}
+
+Persona::~Persona(void)
+{
+}
+
+void Persona::leer()
+{
+	cout<<"Tengo "<<edad<<" y estoy leyendo un libro."<<endl;
+}
+
+void Persona::correr()
+{
+	cout<<"Mi cedula de identidad es "<<cedula<<" y estoy corriendo"<<endl;
+}
+
+//Ejemplo Persona.cpp
+
+
+#include "stdafx.h"
+#include <iostream>
+include "conio.h"
+#include "Persona.h"
+
+using namespace std;
+
+void main()
+{
+	Persona p1(19,12761970);  //Crear una instancia.
+	p1.leer();
+	p1.correr();
+	getch();
+}
+
+
+
