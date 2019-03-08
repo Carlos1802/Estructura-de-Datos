@@ -1,0 +1,62 @@
+
+//TrianguloZ3.h
+
+#pragma once
+class TrianguloZ3
+{
+private:
+	float base;
+	float altura;
+
+public:
+	TrianguloZ3(float _base, float _altura);
+	~TrianguloZ3(void);
+
+	float area(float base, float altura);
+};
+
+
+//TrianguloZ3.cpp
+
+#include "StdAfx.h"
+#include "TrianguloZ3.h"
+#include <iostream>
+
+
+TrianguloZ3::TrianguloZ3(float _base, float _altura)
+{
+	base = _base;
+	altura = _altura;
+}
+
+
+TrianguloZ3::~TrianguloZ3(void)
+{
+}
+
+float TrianguloZ3::area(float base, float altura)
+{
+	float aux;
+	aux = (base*altura)/2;
+	return aux;
+}
+
+
+//Triangulo.cpp
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "TrianguloZ3.h"
+
+using namespace std;
+
+void main()
+{
+	TrianguloZ3 t1(10,5);
+	cout<<"El area es: "<<t1.area(2,4);
+	getch();
+}
+
+
+
