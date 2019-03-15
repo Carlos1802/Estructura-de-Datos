@@ -1,0 +1,73 @@
+
+//Digitos.h
+
+#pragma once
+class Digitos
+{
+private:
+	int numero;
+
+public:
+	Digitos(int _numero);
+	~Digitos(void);
+
+	bool digitopar();
+};
+
+//Digitos.cpp
+
+#include "StdAfx.h"
+#include "Digitos.h"
+
+
+Digitos::Digitos(int _numero)
+{
+	numero = _numero;
+}
+
+
+Digitos::~Digitos(void)
+{
+}
+
+bool Digitos::digitopar()
+{
+	bool z=true;
+	int aux;
+	while(numero>0)
+		(numero%10)/10;
+			if((numero%10)!=(numero%2))
+				return z=false;
+
+	return z;
+}
+
+//EjemploDigitos.cpp
+
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "Digitos.h"
+
+using namespace std;
+
+void main()
+{
+	int num;
+
+	cout<<"Ingrese su numero."<<endl;
+	cin>>num;
+
+	Digitos d1(num);
+
+	if(d1.digitopar()==true)
+		cout<<"El numero tiene digitos pares."<<endl;
+	else
+		cout<<"No tiene ningun digito par."<<endl;
+
+	getch();
+}
+
+
+
