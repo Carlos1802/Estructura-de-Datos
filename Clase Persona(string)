@@ -1,0 +1,90 @@
+
+//Personas.h
+
+#pragma once
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+class Personas
+{
+private:
+	string nombre;
+	int cedula;
+
+public:
+	Personas(string _nombre,int _cedula);
+	~Personas(void);
+
+	void mostrarNombre();
+	void mostrarCedula();
+};
+
+
+//Personas.cpp
+
+#include "StdAfx.h"
+#include "Personas.h"
+#include <string>
+#include <iostream>
+
+
+Personas::Personas(string _nombre,int _cedula)
+{
+	nombre = _nombre;
+	cedula = _cedula;
+}
+
+
+Personas::~Personas(void)
+{
+}
+
+void Personas::mostrarCedula()
+{
+	cout<<"Su nombre es: "<<nombre<<endl;
+}
+
+void Personas::mostrarNombre()
+{
+	cout<<"Su numero de CI es: "<<cedula<<endl;
+}
+
+
+
+//EjemploPersona.cpp
+
+
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+#include "Personas.h"
+
+using namespace std;
+
+void main()
+{
+	string nom;
+	int ced;
+
+	cout<<"Ingrese su nombre."<<endl;
+	getline(cin,nom);
+
+	cout<<"Ingrese su cedula."<<endl;
+	cin>>ced;
+
+	Personas p1(nom,ced);
+
+	p1.mostrarNombre();
+	p1.mostrarCedula();
+
+	getch();
+}
+
+
+
+
+
