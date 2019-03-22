@@ -117,3 +117,137 @@ void main()
 
 }
 
+
+
+//Fecha.cpp Corregido
+
+Fecha::Fecha(string cad)
+{
+	//Separar los valores de interes de la cadena parametro (cad);
+	string sdia = cad.substr(0,2);
+	string smes = cad.substr(3,2);
+	string sanho = cad.substr(6,4);
+
+	dia = 0;
+	int lond = sdia.length();
+	for(int i=0;i<lond;i++)
+	{
+		dia = (dia*10) + (sdia[i] - '0'); //Para convertir el valor char a int.
+	}
+
+	mes = 0;
+	int lonm = smes.length();
+	for(int i=0;i<lonm;i++)
+	{
+		mes = (mes*10) + (smes[i] - '0');
+	}
+
+	anho = 0;
+	int lona = sanho.length();
+	for(int i=0;i<lona;i++)
+	{
+		anho = (anho*10) + (sanho[i] - '0');
+	}
+}
+
+//Main Fecha
+
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+#include "Fecha.h"
+#include "Validador.h"
+
+using namespace std;
+
+void main()
+{
+	string fs;
+
+	cout<<"Introduzca su fecha en formato: dd/mm/aaaa."<<endl;
+	getline(cin,fs);
+
+	Fecha fecha1(fs);
+
+	Validador obj1;
+
+	if(obj1.fechaValida(fecha1)==true)
+		cout<<"La fecha es valida."<<endl;
+	else
+		cout<<"La fecha no es valida."<<endl;
+	
+	cout << fecha1.getDia() << ' ' << fecha1.getMes() << ' ' << fecha1.getAnho() << endl;
+
+	getch();
+}
+
+
+
+
+
+#include "StdAfx.h"
+#include "Fecha.h"
+#include <string>
+using namespace std;
+
+Fecha::Fecha(int _d,int _m,int _a )
+{
+	d=_d;
+	m=_m;
+	a=_a;
+}
+
+Fecha::Fecha(long _f)  //10112019 
+{
+	a=int( _f%10000 );
+	m=int( (_f-_f%10000) % 1000000 );
+	d=int(((_f-_f%10000)/10000)%100);
+
+}
+
+Fecha::Fecha(string _date)
+{
+	d=(atoi(_date.substr(0,2).c_str()));
+	m=(atoi(_date.substr(3,2).c_str()));
+	a=(atoi(_date.substr(6,4).c_str()));
+}
+
+Fecha::~Fecha(void)
+{
+}
+
+bool Fecha::validarfecha()
+{
+   bool t=true;
+   if(m>=1 && m<=12){
+	   if(m==1 || m==3 || m==5 || m==7 || m==8 || m==10 || m==12)
+	     if (d>=1 && d<=31)
+		   return t;
+	     else 
+		   t=false;
+	   else
+		   if (m==4 || m== 6 || m==9 || m==11)
+	           if(d>=1 && d<=30)
+				   return t;
+		       else 
+				   t=false;
+		   else 
+			   //febrero
+			   if(a%400==0 || (a%4==0 && a%100!=0))
+				  if (d>=1 && d<=29)
+					  return t;
+				  else 
+					  t=false;
+			   else
+				   if (d>=1 && d<=28)
+					   return t;
+				   else 
+					   t=false;
+}	
+
+
+
+}
+
