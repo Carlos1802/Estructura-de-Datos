@@ -1,0 +1,128 @@
+
+//Shape.h
+
+#pragma once
+// Base class
+class Shape 
+{
+protected:
+      int width;
+      int height;
+	  int base;
+
+public:
+      void setWidth(int w);
+      void setHeight(int h);
+	  void setBase(int b);
+	  
+};
+
+//Shape.cpp
+
+#include "StdAfx.h"
+#include "Shape.h"
+
+
+void Shape::setWidth(int w)
+{
+	width = w;
+}
+
+void Shape::setHeight(int h)
+{
+	height = h;
+}
+
+void Shape::setBase(int b)
+{
+	base = b;
+}
+
+//Rectangulo.h
+
+#pragma once
+#include "Shape.h"
+
+class Rectangulo: public Shape 
+{
+public:
+	Rectangulo(void);
+	~Rectangulo(void);
+	
+	int getArea()
+	 { 
+         return (width * height); 
+     }
+};
+
+//Rectangulo.cpp
+
+#include "StdAfx.h"
+#include "Rectangulo.h"
+
+
+Rectangulo::Rectangulo(void)
+{
+}
+
+
+Rectangulo::~Rectangulo(void)
+{
+}
+
+//Triangulo.h
+#pragma once
+#include "Shape.h"
+
+class Triangulo : public Shape
+{
+public:
+	Triangulo(void);
+	~Triangulo(void);
+
+	int getArea()
+	{
+		return ((base * height)/2);
+	}
+};
+
+//Triangulo.cpp
+#include "StdAfx.h"
+#include "Triangulo.h"
+
+
+Triangulo::Triangulo(void)
+{
+}
+
+
+Triangulo::~Triangulo(void)
+{
+}
+
+//EjemploHerencia.cpp
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "Rectangulo.h"
+#include "Triangulo.h"
+
+using namespace std;
+
+void main()
+{
+   Rectangulo Rect;
+   Triangulo Tria;
+ 
+   Rect.setWidth(5);
+   Rect.setHeight(7);
+
+   Tria.setBase(10);
+   Tria.setHeight(5);
+
+   // Muestra el área de un rectangulo
+   cout << "Total area triangulo: " << Tria.getArea() << endl;
+   getch();
+}
+
