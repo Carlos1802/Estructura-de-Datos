@@ -1,5 +1,5 @@
 
-//Cuenhta.h
+//Cuenta.h
 
 #pragma once
 #include <string>
@@ -97,7 +97,7 @@ void Cuenta::ingreso(double cantidad)
     saldo= saldo+cantidad;
 }
 
-CuehntaCorriente
+//CuentaCorriente.h
 
 #pragma once
 #include "Cuenta.h"
@@ -111,7 +111,7 @@ public:
 	void RetirarSaldo(int monto);
 };
 
-/7CuentcORRIEJNTE.CPP
+//CuentaCorriente.cpp
 
 
 #include "StdAfx.h"
@@ -133,7 +133,7 @@ void CuentaCorriente::RetirarSaldo(int monto)
 }
 
 
-/7cUENT cJ de AHORRO.H
+//CuentaAhorro.h
 
 #pragma once
 #include <string>
@@ -150,7 +150,7 @@ public:
 	void asignarcuotamant (double mant);
 };
 
-//cUWENBTA CAJA DE AHORRO.CPP
+//CuentaAhorro.cpp
 
 #include "StdAfx.h"
 #include "CuentaCajadeAhorro.h"
