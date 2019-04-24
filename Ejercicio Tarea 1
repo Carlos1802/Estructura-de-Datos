@@ -1,0 +1,231 @@
+
+//Cadena.h
+#pragma once
+#include <string>
+
+class Cadena
+{
+private:
+	string cadena;
+public:
+	Cadena(string _cadena);
+	~Cadena(void);
+
+	void invertirCadena();
+};
+
+
+//Cadena.cpp
+#include "StdAfx.h"
+#include "Cadena.h"
+#include <string.h>
+
+Cadena::Cadena(string _cadena)
+{
+	cadena = _cadena;
+}
+
+
+Cadena::~Cadena(void)
+{
+}
+
+void Cadena::invertirCadena()
+{
+	int longitud;
+	char aux;
+	longitud = cadena.length();
+
+	for(int i=0;i<longitud/2;i++)
+	{	
+		aux = cadena[i];
+		cadena[i] = cadena[longitud-1-i];
+		cadena[longitud-1-i] = aux;
+	}
+}
+//Vector.h
+#pragma once
+#define MAX 100
+
+class Vector
+{
+private:
+	float Vec[MAX];
+	int cantidad;
+
+public:
+	Vector(float _Vec[MAX],int _cantidad);
+	~Vector(void);
+
+	void cargarVector();
+	void ordenarVector();
+	void mostrarVector();
+};
+
+
+//Vector.cpp
+#include "Vector.h"
+#include <iostream>
+
+using namespace std;
+
+
+Vector::Vector(float _Vec[MAX],int _cantidad)
+{
+	Vec[MAX] = _Vec[MAX];
+	cantidad = _cantidad;
+}
+
+
+Vector::~Vector(void)
+{
+}
+
+void Vector::cargarVector()
+{
+	for(int i=0;i<cantidad;i++)
+	{
+		cout<<"Vec["<<i<<"]= "<<endl;
+		cin>>Vec[i];
+	}
+}
+
+void Vector::ordenarVector()
+{
+	int aux;
+	
+	for(int i=0;i<(cantidad-1);i++)
+		for(int j=i;j<cantidad;j++)
+		{
+			if(Vec[i] < Vec[j])
+			{
+				aux = Vec[i];
+				Vec[i] = Vec[j];
+				Vec[j] = aux;
+			}
+		}
+}
+
+void Vector::mostrarVector()
+{
+	for(int i=0;i<cantidad;i++)
+	{
+		cout<<"Vec["<<i<<"]= "<<Vec[i]<<endl;
+	}
+}
+//Paralelogramo.h
+#pragma once
+
+class Paralelogramo
+{
+private:
+	float base;
+	float altura;
+public:
+	Paralelogramo(float _base, float _altura);
+	~Paralelogramo(void);
+
+	float areaParalelogramo();
+};
+
+
+//Paralelogramo.cpp
+#include "StdAfx.h"
+#include "Paralelogramo.h"
+
+
+Paralelogramo::Paralelogramo(float _base, float _altura)
+{
+	base = _base;
+	altura = _altura;
+}
+
+
+Paralelogramo::~Paralelogramo(void)
+{
+}
+
+float Paralelogramo::areaParalelogramo()
+{
+	float a=0;
+
+	a = base * altura;
+	return a;
+}
+//EjemploTarea1.cpp MAIN
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+#include "Paralelogramo.h"
+#include "Vector.h"
+#include "Cadena.h"
+#define MAX 100
+
+using namespace std;
+
+void main()
+{
+	int opcion,n;
+	float b,h,area,vec[MAX];
+	string cad;
+	
+	do{
+		cout<<"_____ MENU _____"<<endl;
+		cout<<"1. Area de un paralelogramo."<<endl;
+		cout<<"2. Cargar un vector y ordenarlo de manera ascendente."<<endl;
+		cout<<"3. Invertir una cadena de caracteres."<<endl;
+		cout<<"0. Salir."<<endl;
+		cout<<"Elija una opcion."<<endl;
+		cin>>opcion;
+
+		switch(opcion)
+		{
+		case 1:
+			cout<<"Ingrese la base del paralelogramo."<<endl;
+			cin>>b;
+			cout<<"Ingrese la altura del paralelogramo."<<endl;
+			cin>>h;
+			break;
+		case 2:
+			cout<<"Ingrese la cantidad de elementos que cargara en el vector."<<endl;
+			cin>>n;
+			break;
+		case 3:
+			cout<<"Ingrese su cadena de caracteres."<<endl;
+			getline(cin,cad);
+			break;
+		case 0:
+			cout<<"Saliendo."<<endl;
+			break;
+		default:
+			cout<<"Opcion invalida."<<endl;
+		}
+
+
+		if(opcion==1)
+		{
+			Paralelogramo P1(b,h);
+			area = P1.areaParalelogramo();
+			cout<<"El area del paralelogramo es: "<<area<<endl;
+		}
+		if(opcion==2)
+		{
+			Vector V1(vec,n);
+			V1.cargarVector();
+			V1.ordenarVector();
+			V1.mostrarVector();
+		}
+		if(opcion==3)
+		{
+			Cadena C1(cad);
+			C1.invertirCadena();
+			cout<<"La cadena invertida es: "<<cad<<endl;
+		}
+
+	}while(opcion!=0);
+
+}
+
+
+
