@@ -1,0 +1,35 @@
+
+int Cola::Siguiente (int ind)
+{
+ return (ind + 1) % MAX;
+}
+
+bool Cola::Encolar (Valor x)
+{
+ bool error;
+ if (Siguiente (fin) == ini)
+ error = true;
+ else
+ {
+ error = false;
+ info[fin] = x;
+ fin = Siguiente (fin);
+ }
+ return error;
+}
+
+
+bool Cola::Desencolar (void)
+{
+ bool error;
+ if (ColaVacia () )
+ error = true;
+ else
+ {
+ error = false;
+ ini = Siguiente (ini);
+ }
+ return error;
+}
+
+
