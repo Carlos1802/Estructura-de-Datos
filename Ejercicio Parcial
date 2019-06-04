@@ -1,0 +1,103 @@
+
+//Pila.h
+
+#pragma once
+#define MAX 100
+#include <string>
+using namespace std;
+
+
+class Pila
+{
+private:
+	long Vec1[MAX];
+	string Vec2[MAX];
+	int tope;
+
+public:
+	Pila(void);
+	~Pila(void);
+	void apilar();
+	void mostrar();
+};
+
+
+//Pila.cpp
+
+#include "StdAfx.h"
+#include "Pila.h"
+#include <string>
+#include <iostream>
+using namespace std;
+
+
+Pila::Pila(void)
+{
+	tope=-1;
+}
+
+
+Pila::~Pila(void)
+{
+}
+
+void Pila::apilar()
+{
+	int opcion;
+	if(tope==MAX-1)
+		cout<<"Memoria Llena."<<endl;
+
+	else
+	{
+		do{
+			cout<<"1. Procesar."<<endl;
+			cout<<"0. Salir."<<endl;
+			cin>>opcion;
+
+			switch(opcion)
+			{
+			case 1:
+				tope++;
+				cout<<"Ingrese su numero de CI."<<endl;
+				cin>>Vec1[tope];
+				cin.ignore();
+				cout<<"Ingrese el nombre completo."<<endl;
+				getline(cin,Vec2[tope]);
+				break;
+
+			case 0:
+				cout<<"Saliendo."<<endl;
+				break;
+
+			default:
+				cout<<"Opcion invalida."<<endl;
+				break;
+			}
+		}while(opcion!=0);
+	}
+}
+
+void Pila::mostrar()
+{
+	for(int i=tope;i>=0;i--)
+	{
+		cout<<"Cedula: "<<Vec1[i]<<"Nombre: "<<Vec2[i]<<endl;
+	}
+}
+
+//Ejercicio1.cpp - Miain
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "Pila.h"
+using namespace std;
+
+void main()
+{
+	Pila p1;
+
+	p1.apilar();
+	p1.mostrar();
+	getch();
+}
